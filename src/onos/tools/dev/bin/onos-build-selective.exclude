@@ -1,0 +1,7 @@
+.*/archetypes/.*
+.*/maven-plugin/.*
+.*/build/conf/.*
+.*/docs/.*
+.*/openflow/drivers/.*
+.*/cord-gui/.*
+.*/jdvue/.*

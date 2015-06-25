@@ -1,0 +1,20 @@
+#!/bin/bash
+# -----------------------------------------------------------------------------
+# Forms ONOS cluster using REST API.
+# -----------------------------------------------------------------------------
+
+[ ! -d "$ONOS_ROOT" ] && echo "ONOS_ROOT is not defined" >&2 && exit 1
+. $ONOS_ROOT/tools/build/envDefaults
+
+node=${1:-$OCI}
+
+if [ $node = "cell" ]; then
+    nodes=$(env | grep "OC[0-9]*=" | cut -d= -f2)
+    node=${OCI}
+else
+    nodes="$@"
+fi
+
+set -x
+
+ssh $ONOS_USER@$node /tmp/$ONOS_BITS/bin/onos-form-cluster $nodes

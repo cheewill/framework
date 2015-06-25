@@ -1,0 +1,68 @@
+<!-- Flow partial HTML -->
+<div id="ov-flow">
+    <div class="tabular-header">
+        <h2>
+            Flows for Device {{devId || "(No device selected)"}}
+            ({{tableData.length}} total)
+        </h2>
+        <div class="ctrl-btns">
+            <div class="refresh" ng-class="{active: autoRefresh}"
+                 icon icon-size="36" icon-id="refresh"
+                 ng-click="toggleRefresh()"></div>
+        </div>
+    </div>
+
+    <div class="summary-list" onos-table-resize>
+
+        <div class="table-header"
+             onos-sortable-header
+             sort-params="sortParams"
+             sort-callback="sortCallback(sortParams)">
+            <table>
+                <tr>
+                    <td colId="id" col-width="180px" sortable>Flow ID </td>
+                    <td colId="appId" sortable>App ID </td>
+                    <td colId="groupId" sortable>Group ID </td>
+                    <td colId="tableId" sortable>Table ID </td>
+                    <td colId="priority" sortable>Priority </td>
+                    <td colId="timeout" sortable>Timeout </td>
+                    <td colId="permanent" sortable>Permanent </td>
+                    <td colId="state" sortable>State </td>
+                    <td colId="packets" sortable>Packets </td>
+                    <td colId="bytes" sortable>Bytes </td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="table-body">
+            <table>
+                <tr ng-if="!tableData.length" class="no-data">
+                    <td colspan="10">
+                        No Flows found
+                    </td>
+                </tr>
+
+                <tr ng-repeat-start="flow in tableData track by $index">
+                    <td>{{flow.id}}</td>
+                    <td>{{flow.appId}}</td>
+                    <td>{{flow.groupId}}</td>
+                    <td>{{flow.tableId}}</td>
+                    <td>{{flow.priority}}</td>
+                    <td>{{flow.timeout}}</td>
+                    <td>{{flow.permanent}}</td>
+                    <td>{{flow.state}}</td>
+                    <td>{{flow.packets}}</td>
+                    <td>{{flow.bytes}}</td>
+                </tr>
+                <tr>
+                    <td class="selector" colspan="10">{{flow.selector}}</td>
+                </tr>
+                <tr ng-repeat-end>
+                    <td class="treatment" colspan="10">{{flow.treatment}}</td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+
+</div>
