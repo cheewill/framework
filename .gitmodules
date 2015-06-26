@@ -1,0 +1,6 @@
+[submodule "src/onos"]
+	path = src/onos
+	url = https://github.com/opennetworkinglab/onos
+[submodule "src/suricata"]
+	path = src/suricata
+	url = https://github.com/inliniac/suricata
