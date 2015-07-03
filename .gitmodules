@@ -4,3 +4,6 @@
 [submodule "src/suricata"]
 	path = src/suricata
 	url = https://github.com/inliniac/suricata
+[submodule "src/compass-core"]
+	path = src/compass-core
+	url = https://github.com/stackforge/compass-core
