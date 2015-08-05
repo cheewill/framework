@@ -7,3 +7,6 @@
 [submodule "src/compass-core"]
 	path = src/compass-core
 	url = https://github.com/stackforge/compass-core
+[submodule "src/openstack/neutron/plugin"]
+	path = src/openstack/neutron/plugin
+	url = https://github.com/onosfw/plugin
